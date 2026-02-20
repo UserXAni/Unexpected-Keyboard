@@ -33,7 +33,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
     - name: Build debug APK
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleRelease
       env:
         DEBUG_KEYSTORE: "debug.keystore"
         DEBUG_KEYSTORE_PASSWORD: debug0
@@ -48,4 +48,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: "${{env.artifact}} debug_apk"
-        path: build/outputs/apk/debug/*.apk
+        path: build/outputs/apk/release/*.apk
